@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>Desafio</title>
+	<link rel="stylesheet" href="reset.css">
+    <link rel="stylesheet" href="estilo.css">
+</head>
+
+
+<body>
+
+	<header>
+		
+			
+
+	</header>
+
+	<div id="todo">		
+		<div class="logo">
+        	<h1><img id="#logo" src="imagenes/logo.png" title="Logo" height="46.37" width="31.09" /></h1>
+    	</div>
+    	
+    	<p>
+    		<textarea name="mensaje" id="encrip" class="campo" placeholder="Ingrese el texto aquí..." required></textarea>
+
+		</p>
+
+		<div class="rectangulo">
+			
+		</div>
+		
+
+		<div id="text" class="frame5">
+			<p class="pframe5">Ningún mensaje fue encontrado</p>
+			<p class="pframe55">Ingresa el texto que desees encriptar o desencriptar.</p>
+			
+		</div>
+
+		<div class="muñeco"> 
+			<img id="muñeco" src="imagenes/Muñeco.png" title="Muñeco"/>
+		</div>
+
+
+
+		<div class="frame1">
+			<p class="pframe1"><img class="signo" src="imagenes/signo.png"/>Solo letras minusculas y sin acentos</p>
+		</div>
+
+		<div class="frame3">
+
+			<button id="btnen"><p>Encriptar</p></button>
+			<button id="btnde"><p>Desencriptar</p></button>
+
+		</div>
+
+
+	</div>
+		<div >
+			<button id="btncopiar"><p>Copiar</p></button>
+		</div>
+
+		<div>
+
+			<p>
+				<textarea for="nombre"  class="msj" id="txtcopiar" placeholder="Texto encriptado aparecerá aquí"></textarea>
+    		
+			</p>
+
+			<span id="copyAnswer"></span>
+			
+		</div>
+
+
+		
+
+		<script>
+				document.getElementById('btnen').onclick = function() {
+			    let frase = encrip.value;
+				frase = frase.replaceAll('e', 'enter')
+										.replaceAll('i', 'imes')
+										.replaceAll('a', 'ai')
+										.replaceAll('o', 'ober')
+										.replaceAll('u', 'ufat');
+			    document.getElementById('txtcopiar').innerHTML = frase;
+
+			    document.getElementById("muñeco").style.visibility = "hidden";
+  				document.getElementById("text").style.visibility = "hidden";
+  				document.getElementById("btncopiar").style.visibility = "visible";
+  				document.getElementById("txtcopiar").style.visibility = "visible";
+				}
+  				
+				document.getElementById('btnde').onclick = function() {
+			    let frase = encrip.value;
+				frase = frase.replaceAll('enter', 'e')
+										.replaceAll('imes', 'i')
+										.replaceAll('ai', 'a')
+										.replaceAll('ober', 'o')
+										.replaceAll('ufat', 'u');
+			    document.getElementById('txtcopiar').innerHTML = frase;
+
+			    document.getElementById("muñeco").style.visibility = "hidden";
+  				document.getElementById("text").style.visibility = "hidden";
+  				document.getElementById("btncopiar").style.visibility = "visible";
+  				document.getElementById("txtcopiar").style.visibility = "visible";
+				}
+
+				var textarea = document.getElementById("txtcopiar");
+			   	var answer = document.getElementById("copyAnswer");
+			    var copy   = document.getElementById("btncopiar");
+			    
+			    copy.addEventListener('click', function(e) {
+			       // Sleccionando el texto
+			       textarea.select(); 
+			       try {
+			           // Copiando el texto seleccionado
+			           var successful = document.execCommand('copy');
+			     
+			           if(successful) window.alert("Copiado en portapapeles");
+			           else window.alert('Incapaz de copiar!');
+			       } catch (err) {
+			           window.alert('Browser no soportado!');
+			       }
+			    });
+		</script>
+
+		
+
+
+</body>
+</html>
+
